@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>TicTacToe</title>
 </head>
 <body>
-    <script src="./main.js"></script>
+    <div class="container">
+        <h1>TicTacToe</h1>
+        <div id="player-name-input" class="d-flex justify-content-start mb-4 w-100">
+            <input class="w-100 mr-4" type="text" name="playerA" id="playerA" placeholder="Player X">
+            <input class="w-100 mr-4" type="text" name="playerB" id="playerB" placeholder="Player O">
+            <button class="btn mr-4" id="new-game">New Game</button>
+            <button class="btn" id="reset-game">Reset</button>
+        </div>
+        <h2 id="game-state" class="text-center">What are the names of the players?</h2>
+        <div class="game-board" id="game-board"></div>
+    </div>
+    <script src="./tictactoe.js"></script>
 </body>
 </html>
