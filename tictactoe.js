@@ -1,5 +1,5 @@
-const playerAInput = document.querySelector('#playerA');
-const playerBInput = document.querySelector('#playerB');
+const playerAInput = document.querySelector('#player-a-name');
+const playerBInput = document.querySelector('#player-b-name');
 
 const Player = (name, marker) => {
     return { name, marker };
@@ -8,8 +8,7 @@ const Player = (name, marker) => {
 const Game = (playerA, playerB, gameState, gameBoard) => {
     const start = () => {
         gameState.set(`Started new game. It is ${playerA.name}'s turn.`);
-        console.log(this);
-        gameBoard.build(this);
+        gameBoard.build(playerMarker, endTurn);
     }
 
     let currentPlayer = playerA;
@@ -37,22 +36,22 @@ const GameBoard = ((wrapper) => {
         ['', '', '']  // 6, 7, 8
     ];
 
-    const Tile = (game, position) => {
+    const Tile = (playerMarker, endTurn, position) => {
         let tileNode = document.createElement('div');
         tileNode.className = 'tile';
         tileNode.addEventListener('click', (e) => {
             if (e.target.innerText !== '') return;
-            e.target.innerText = game.playerMarker();
-            game.endTurn();
+            e.target.innerHTML = `<span>${playerMarker()}</span>`;
+            endTurn();
         });
         return tileNode;
     };
 
-    const build = (game) => {
+    const build = (playerMarker, endTurn) => {
         wrapper.innerHTML = '';
         tiles.forEach((row, x) => {
             row.forEach((column, y) => {
-                wrapper.appendChild(Tile(game, {x,y}));
+                wrapper.appendChild(Tile(playerMarker, endTurn, {x,y}));
             })
         })
     };
@@ -61,7 +60,7 @@ const GameBoard = ((wrapper) => {
 })(document.querySelector('#game-board'));
 
 let game = null;
-const newGameButton = document.querySelector('#new-game');
+const newGameButton = document.querySelector('#new-game-button');
 newGameButton.addEventListener('click', () => {
     game = Game(
         Player(playerAInput.value, 'X'),
