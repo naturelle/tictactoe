@@ -6,33 +6,8 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+    <link rel="stylesheet" href="style.css">
     <title>TicTacToe</title>
-    <style>
-        #game-board {
-            width: 60rem;
-            height: 60rem;
-            margin: 0 auto;
-            box-sizing: content-box;
-            padding: 2rem;
-            background-color: #c1c1c1;
-            border-radius: 0.5rem;
-            line-height: 19.6rem;
-        }
-        .tile {
-            width: 19.6rem;
-            height: 19.6rem;
-            margin: 0.2rem;
-            background-color: #f1f1f1;
-            float: left;
-            text-align: center;
-        }
-        .tile span {
-            vertical-align: middle;
-            display: inline-block;
-            font-size: 10rem;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -40,7 +15,7 @@
             <div class="column">
                 <h1>TicTacToe</h1>
                 <h2 id="game-state">Please type your names below</h2>
-                <form>
+                <form id="input-area">
                     <fieldset>
                         <div class="row">
                             <div class="column">
@@ -53,17 +28,20 @@
                             </div>
                         </div>
                         <button type="button" class="button" id="new-game-button">New Game</button>
-                        <button type="button" class="button button-clear" id="reset-game-button">Reset</button>
+
                     </fieldset>
                 </form>
             </div>
         </div>
-        <div class="row">
+        <div id="game-area" class="row d-none">
             <div class="column">
                 <div id="game-board"></div>
+                <div style="text-align:center;">
+                    <button type="button" class="button button-clear" id="reset-game-button">Reset</button>
+                </div>
             </div>
         </div>
     </div>
-    <script src="./tictactoe.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+#game-board {
+    width: 60rem;
+    height: 60rem;
+    margin: 0 auto;
+    box-sizing: content-box;
+    padding: 2rem;
+    background-color: #c1c1c1;
+    border-radius: 0.5rem;
+    line-height: 19.6rem;
+}
+.tile {
+    width: 19.6rem;
+    height: 19.6rem;
+    margin: 0.2rem;
+    background-color: #f1f1f1;
+    float: left;
+    text-align: center;
+    transition: background-color 0.5s;
+}
+.tile:hover {
+    background-color: #cacaca;
+}
+.tile span {
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 10rem;
+    font-weight: bold;
+}
+.d-none {
+    display: none;
+}
